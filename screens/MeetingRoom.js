@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput,TouchableOpacity } from 'react-native'
 
 const MeetingRoom = () => {
-const [name,setName] = useState()
-const [roomId, setRoomId] = useState()
+const [name,setName] = useState();
+const [roomId, setRoomId] = useState();
     return (
         <View style={styles.container}>
             <View style={styles.startMeetingContainer}>
@@ -13,8 +13,13 @@ const [roomId, setRoomId] = useState()
                 <View style={styles.info}>
                     <TextInput  style={styles.textInput} value={roomId} onChangeText={text=>setRoomId(text)} placeholder="Enter room id" placeholderTextColor="#7674"/>
                 </View>
+                <View style={{alignItems: 'center'}}>
+                    <TouchableOpacity style={styles.startMeetingButton} onPress={()=>{}}>
+                        <Text style={{color:"white", fontWeight:"bold"}}>Start Meeting</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            </View>
+        </View>
     )
 }
 
@@ -37,6 +42,16 @@ const styles = StyleSheet.create({
     textInput: {
         color: "white",
         fontSize:18,
+
+    },
+    startMeetingButton:{
+        width:350,
+        marginTop:20,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#8470dc",
+        height:50,
+        borderRadius:15,
 
     }
 }); 

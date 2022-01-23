@@ -26,14 +26,17 @@ const items = [
     },
 ]
 
-const MenuButton = () => {
+const MenuButton = ({navigation}) => {
+    const openMeeting = () => {
+        navigation.navigate("Room")
+    }
     return (
 
         <View style={styles.container}>
             {items.map((item, index) =>
 
                 <View key={index} style={styles.buttonContainer}>
-                    <TouchableOpacity style={{ ...styles.button, backgroundColor: item.customColor ? item.customColor : "#0470dc" }}>
+                    <TouchableOpacity onPress={()=>openMeeting()} style={{ ...styles.button, backgroundColor: item.customColor ? item.customColor : "#0470dc" }}>
                         <FontAwesome name={item.name} size={23} color={"#efefef"} />
                     </TouchableOpacity>
                     <Text style={styles.menuText}>{item.title}</Text>
